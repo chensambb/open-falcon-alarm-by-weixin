@@ -1,0 +1,36 @@
+{
+    "debug": true,
+    "uicToken": "",
+    "http": {
+        "enabled": true,
+        "listen": "0.0.0.0:9912"
+    },
+    "queue": {
+        "sms": "/sms",
+        "mail": "/mail"
+        "weixin": "/weixin"
+    },
+    "redis": {
+        "addr": "127.0.0.1:6379",
+        "maxIdle": 5,
+        "highQueues": [
+            "event:p0",
+            "event:p1",
+            "event:p2",
+            "event:p3",
+            "event:p4",
+            "event:p5"
+        ],
+        "lowQueues": [
+            "event:p6"
+        ],
+        "userSmsQueue": "/queue/user/sms",
+        "userMailQueue": "/queue/user/mail"
+        "userWeixinQueue": "/queue/user/weixin"
+    },
+    "api": {
+        "portal": "http://falcon.example.com",
+        "uic": "http://uic.example.com",
+        "links": "http://link.example.com"
+    }
+}
