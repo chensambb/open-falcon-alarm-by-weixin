@@ -1,11 +1,12 @@
 falcon-sender
 =============
+经过改写,此版本支持微信报警,在添加联系人的时候需要填写正确的IM，上面就是企业号的成员名称。
 
-alarm处理报警event可能会产生报警短信或者报警邮件，alarm不负责发送，只是把报警邮件、短信写入redis队列，sender负责读取并发
+alarm处理报警event可能会产生报警微信、短信或者报警邮件，alarm不负责发送，只是把报警微信、邮件、短信写入redis队列，sender负责读取并发
 送。
 
 各个公司有自己的短信通道，自己的邮件发送方式，sender如何调用各个公司自己的组件呢？那只能制定规范了，sender的配置文件
-cfg.json中配置了api:sms和api:mail，即两个http接口，这是需要各个公司提供的。
+cfg.json中配置了api:sms、api:mail、api:weixin,即两个http接口，这是需要各个公司提供的。
 
 当要发送短信的时候，sender就会调用api:sms中配置的http接口，post方式，参数是：
 
@@ -17,6 +18,11 @@ cfg.json中配置了api:sms和api:mail，即两个http接口，这是需要各�
 - tos：用逗号分隔的多个邮箱地址
 - content：邮件正文
 - subject：邮件标题
+
+当要发送邮件的时候，sender就会调用api:weixin中配置的http接口，post方式，参数是：
+
+- tos：用逗号分隔的多个IM
+- content：邮件正文
 
 ## Installation
 
@@ -37,5 +43,5 @@ go get ./...
 - redis: redis地址需要和alarm、judge使用同一个
 - queue: 维持默认即可，需要和alarm的配置一致
 - worker: 最多同时有多少个线程玩命得调用短信、邮件发送接口
-- api: 短信、邮件发送的http接口，各公司自己提供
+- api: 微信、短信、邮件发送的http接口，各公司自己提供
 
