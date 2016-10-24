@@ -7,7 +7,7 @@
     },
     "queue": {
         "sms": "/sms",
-        "mail": "/mail"
+        "mail": "/mail",
         "weixin": "/weixin"
     },
     "redis": {
@@ -25,7 +25,7 @@
             "event:p6"
         ],
         "userSmsQueue": "/queue/user/sms",
-        "userMailQueue": "/queue/user/mail"
+        "userMailQueue": "/queue/user/mail",
         "userWeixinQueue": "/queue/user/weixin"
     },
     "api": {
