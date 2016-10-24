@@ -1,8 +1,9 @@
 falcon-alarm
 ============
+PS:经过改写可支持微信企业号报警。
 
 judge把报警event写入redis，alarm从redis读取event，做相应处理，可能是发报警短信、邮件，可能是callback某个http地址。
-生成的短信、邮件写入queue，sender模块专门负责来发送。
+生成的微信、短信、邮件写入queue，sender模块专门负责来发送。
 
 
 ## Installation
