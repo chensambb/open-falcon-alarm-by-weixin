@@ -1,4 +1,13 @@
 #coding=UTF-8
+
+'''
+Created on 2016-10-21
+
+@author: chenguomin  qq:29235373
+
+@explain: 微信 http api
+'''
+
 import BaseHTTPServer
 import urlparse
 import time
