@@ -19,7 +19,7 @@ cfg.json中配置了api:sms、api:mail、api:weixin,即两个http接口，这是
 - content：邮件正文
 - subject：邮件标题
 
-当要发送邮件的时候，sender就会调用api:weixin中配置的http接口，post方式，参数是：
+当要发送微信的时候，sender就会调用api:weixin中配置的http接口，post方式，参数是：
 
 - tos：用逗号分隔的多个IM
 - content：邮件正文
